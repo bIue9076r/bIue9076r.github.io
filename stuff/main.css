@@ -63,3 +63,49 @@ a {
 a:hover {
 	color: white;
 }
+
+.gameDisplay {
+	height: 600px;
+	padding: 25px;
+	margin-bottom: 50px;
+}
+
+#gameDesc {
+	float: left;
+	width: 50%;
+}
+
+#gameImage {
+	float: right;
+	align-self: center;
+	max-width: 45%;
+}
+
+#queue {
+	background-color: #4E6A6A;
+	max-width: 75%;
+	padding: 15px;
+	min-height: 25px;
+}
+
+#queueItem {
+	margin-bottom: 10px;
+	height: 25px;
+}
+
+#queueItem p {
+	margin: 0;
+	float: left;
+}
+
+#queueItem button {
+	margin-right: 10px;
+	float: left;
+}
+
+#current {
+	background-color: #4E6A6A;
+	max-width: 75%;
+	padding: 15px;
+	min-height: 25px;
+}

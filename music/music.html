@@ -9,7 +9,7 @@
 	<title>bIue9076r - Music</title>
 	<link rel="stylesheet" href="../stuff/main.css">
 	<script src="./howler.js"></script>
-	<script src="./jukebox.js"></script>
+	<script src="./Sortable.js"></script>
 </head>
 <body>
 	<ul id="Topbar">
@@ -21,7 +21,25 @@
 		<li id="Topbar_item"><a href="../misc/misc.html">Misc.</a></li>
 	</ul>
 	<div id="ContentBox">
-
+		<section id="current">
+			<div id="currentInfo">
+				<img>
+				<h2>Nothing</h2>
+				<p>Year: </p>
+				<p>Album: XXXX</p>
+				<p>Duration: -:--</p>
+			</div>
+			<div id="currentButtons">
+				<button onclick="SongPlay()">play</button>
+				<button onclick="SongPause()">pause</button>
+				<button onclick="SongSkip()">skip</button>
+				<button onclick="GenerateQueue(true)">shuffle</button>
+			</div>
+		</section>
+		<br>
+		<hr style="margin-left: 0; width: 76.7%;">
+		<section id="queue"></section>
 	</div>
+	<script src="./jukebox.js"></script>
 </body>
 </html>
