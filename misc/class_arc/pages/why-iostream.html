@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="bIue's Zone of the web. Also known as a corner to some.">
+	<meta name="keywords" content="About, bIue, bIue9076r, Games">
+	<meta name="author" content="bIue9076r">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bIue9076r - Why Iostream?</title>
+	<link rel="stylesheet" href="../../../stuff/main.css">
+</head>
+<body>
+	<ul id="Topbar">
+		<li id="Topbar_item"><p>Zone bIue</p></li>
+		<li id="Topbar_item"><a href="../../../index.html">Home</a></li>
+		<li id="Topbar_item"><a href="../../../projects/games.html">Games</a></li>
+		<li id="Topbar_item"><a href="../../../projects/projects.html">Projects</a></li>
+		<li id="Topbar_item"><a href="../../../music/music.html">Music</a></li>
+		<li id="Topbar_item"><a id="active" href="../../misc.html">Misc.</a></li>
+	</ul>
+	<div id="ContentBox">
+		<p><a title="Home page" href="../mainpage.html">Home page</a></p>
+		<hr />
+		<p>Why does every file we look at start with</p>
+		<pre>#include &lt;iostream&gt;</pre>
+		<p>&nbsp;</p>
+		<p>Well to understand this we have to understand what the compiler is actually doing with every "#include".</p>
+		<p>#include is simply just a <strong>compiler directive<sup><a href="#glos1">[1]</a></sup></strong> that tells the compiler <strong>before</strong> it starts compiling things, it needs to copy and paste the location of the file contained inside the &lt;&gt;.</p>
+		<p>Yes this means that iostream is not some mystical object that cannot be explained. It can be easily found wherever your <strong>include path<sup><a href="#glos2">[2]</a></sup></strong> points to.</p>
+		<p>&nbsp;</p>
+		<p>Doing such gets you</p>
+		<pre>#include &lt;ios&gt;
+#include &lt;streambuf&gt;
+#include &lt;istream&gt;
+#include &lt;ostream&gt;
+		
+namespace std {
+	extern istream cin;
+	extern ostream cout;
+	extern ostream cerr;
+	extern ostream clog;
+	
+	extern wistream wcin;
+	extern wostream wcout;
+	extern wostream wcerr;
+	extern wostream wclog;
+}
+</pre>
+		<p>What? Even more includes?! Yes, but they are easy to understand.</p>
+		<p>ios is pretty self explanatory it deals with input and output, streambuf deals with the buffers of streams, istream deals with input streams, and ostream deals with output streams.</p>
+		<p>namespace std? We've seen that before. Like before it gives the compiler the last names of the variables given below.</p>
+		<p>extern is a keyword that tells the <strong>linker<sup><a href="#glos3">[3]</a></sup></strong> that this variable is not undefined and instead defined else where. (I'll explain why this is useful in a later page)</p>
+		<p>So basically this file tells the linker that the in stream std::cin, the out stream std::cout. the out stream std::cerr, the out stream std::clog, the <strong>wide<sup><a href="#glos4">[4]</a></sup> </strong>in stream std::wcin, the wide out stream std::wcout, the wide outstream std::wcerr, and the wide outstream std::wclog are all defined elsewhere.</p>
+		<p>&nbsp;</p>
+		<p>So... Why do all this? Well to put it simply, its your choice. You have to choose to want to deal with inputs and outputs. A submarine running on C++ has no business having the extra code to print to a terminal if there is no such terminal. So for the sake of efficiency you start with nothing and pick the ingredients you want in your program.</p>
+		<p>Glossary</p>
+		<hr />
+		<p id="glos1">1. Compiler Directive - Instructions given to the compiler to preform before it starts compiling. (There's a bunch so expect a page soon)</p>
+		<p id="glos2">2. Include Path - The path that the compiler looks for things like header files or libraries. Usually /path-to-compiler/include</p>
+		<p id="glos3">3. Linker - The final stage in the compilation process where the compiler joins together definitions of symbols (variables and functions) into one executable file (something your cpu can run)</p>
+		<p id="glos4">4. Wide Strings - A string defined with a character size larger than a byte (8 bits)</p>
+	</div>
+</body>
+</html>

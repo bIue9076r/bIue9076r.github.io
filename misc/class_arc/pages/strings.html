@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="bIue's Zone of the web. Also known as a corner to some.">
+	<meta name="keywords" content="About, bIue, bIue9076r, Games">
+	<meta name="author" content="bIue9076r">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bIue9076r - Strings!</title>
+	<link rel="stylesheet" href="../../../stuff/main.css">
+</head>
+<body>
+	<ul id="Topbar">
+		<li id="Topbar_item"><p>Zone bIue</p></li>
+		<li id="Topbar_item"><a href="../../../index.html">Home</a></li>
+		<li id="Topbar_item"><a href="../../../projects/games.html">Games</a></li>
+		<li id="Topbar_item"><a href="../../../projects/projects.html">Projects</a></li>
+		<li id="Topbar_item"><a href="../../../music/music.html">Music</a></li>
+		<li id="Topbar_item"><a id="active" href="../../misc.html">Misc.</a></li>
+	</ul>
+	<div id="ContentBox">
+		<p><a title="Home page" href="../mainpage.html">Home page</a></p>
+		<hr />
+		<p>Humans use words to speak, unfortunately for computers.</p>
+		<p>Previously in a latter page, we explored how words are just strings of characters.</p>
+		<p>Well what exactly does that mean?</p>
+		<p>Imagine a list of characters in the phrase "This is not a pipe"</p>
+		<pre>char phrase[18] = {'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'n', 'o', 't', ' ', 'a', ' ', 'p', 'i', 'p', 'e'};</pre>
+		<p>Well there are 18 letters, but only the compiler knows this not the cpu.</p>
+		<p>This is bad because if we were to read this phrase, where would we stop if we do not know how long it is? (It does not stop and goes on until it crashes)</p>
+		<p>Well why not just store how long the phrase is in a different variable.</p>
+		<pre>int phrase_len = 18;
+char phrase[18] = {'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'n', 'o', 't', ' ', 'a', ' ', 'p', 'i', 'p', 'e'};</pre>
+		<p>Well now this works, except it is pretty clunky to work with.</p>
+		<pre>stringFunction(phrase, phrase_len, ...);</pre>
+		<p>It requires two arguments to be passed to be used.</p>
+		<hr />
+		<p>Luckily for us in the modern age lots of smarter people have been working on this exact problem for ages</p>
+		<p>There are many different approaches each with their own pros and cons, but the two I will cover are the two most common methods.</p>
+		<p>Null Terminated Strings and Fat Strings.</p>
+		<p>&nbsp;</p>
+		<p>Null Terminated Strings get their name from the fact that they require a Null at the end to tell the cpu that the string ends there.</p>
+		<pre>char phrase[19] = {'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'n', 'o', 't', ' ', 'a', ' ', 'p', 'i', 'p', 'e', 0};</pre>
+		<p>The Null (0) at the end only increases the size of the string by one byte but now we can just pass the string into any function without needing its associated length.</p>
+		<pre>stringFunction(phrase, ...);</pre>
+		<p>&nbsp;</p>
+		<p>Fat Strings, on the other hand, get their name from the fact that they are two things at the same time.</p>
+		<pre>struct fatstring_s {
+	int string_len;
+	char[] string;
+};
+
+struct fatstring_s phrase = {
+	18, {'T', 'h', 'i', 's', ' ', 'i', 's', ' ', 'n', 'o', 't', ' ', 'a', ' ', 'p', 'i', 'p', 'e'};
+};
+</pre>
+		<p>You may have noticed that this is literally just the first method mentioned at the start, yes it very much is. However it has one notable benefit that the original method did not posses, due to the fact that you can pass the fat string as one object.</p>
+		<pre>stringFunction(phrase, ...);</pre>
+		<p>It gets called fat because instead of taking up one extra byte it takes up a full 8 extra bytes from the inclusion of the integer that stores its length.</p>
+		<hr />
+		<p>There is no objectively correct answer to the storage of strings, but these few examples should be enough to get your mind jogging on how to solve the problem.</p>
+		<p>Though I should note that the C/C++ standard library runs exclusively on Null terminated strings so you should expect to turn your perfect string storage method into a null terminated string if possible.</p>
+	</div>
+</body>
+</html>

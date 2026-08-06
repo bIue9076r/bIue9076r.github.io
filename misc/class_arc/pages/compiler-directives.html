@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="bIue's Zone of the web. Also known as a corner to some.">
+	<meta name="keywords" content="About, bIue, bIue9076r, Games">
+	<meta name="author" content="bIue9076r">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bIue9076r - Compiler Directives</title>
+	<link rel="stylesheet" href="../../../stuff/main.css">
+</head>
+<body>
+	<ul id="Topbar">
+		<li id="Topbar_item"><p>Zone bIue</p></li>
+		<li id="Topbar_item"><a href="../../../index.html">Home</a></li>
+		<li id="Topbar_item"><a href="../../../projects/games.html">Games</a></li>
+		<li id="Topbar_item"><a href="../../../projects/projects.html">Projects</a></li>
+		<li id="Topbar_item"><a href="../../../music/music.html">Music</a></li>
+		<li id="Topbar_item"><a id="active" href="../../misc.html">Misc.</a></li>
+	</ul>
+	<div id="ContentBox">
+		<p><a title="Home page" href="../mainpage.html">Home page</a></p>
+		<hr />
+		<p>Compiler directives are nothing more than directions for the compiler. More specifically for the Preprocessor section of the compiler.</p>
+		<p>They come in many different shapes and types depending on the compiler but for this page I will only be explaining the most common GNU GCC/G++ compiler directives.</p>
+		<p>&nbsp;</p>
+		<p>The first and most common directive is the directive</p>
+		<pre>#define [Name] [Value]</pre>
+		<p>Now what does it do? Well simply it tells the preprocessor that wherever it sees [Name] it should replace it with [Value].</p>
+		<pre>#define number 1283
+
+int x = number; // Original code
+int x = 1283; // Code after the preprocessor replaces "number"</pre>
+		<p>It also has a second use in the sense that it can be used to create <strong>Macros</strong>. A macro being an automated task.</p>
+		<pre>#define add5(n) (n + 5)
+
+// Original Code
+int x = add5(10);
+int y = add5(0);
+int z = add5(4);
+
+// Code after the preprocessor uses the macro "add5"
+int x = (10 + 5);
+int y = (0 + 5);
+int z = (4 + 5);</pre>
+		<p>Even more interestingly you can define a name but not give it a value.</p>
+<		pre>#define [NAME]</pre>
+		<p>This may seem odd as you cannot use it for anything, but keep it in the back of your head.</p>
+		<hr />
+		<p>Another directive is</p>
+		<pre>#include &lt;path/to/file&gt;</pre>
+		<p>We have already looked at this before in a previous page so I will not rehash most of the things I covered there, but this directive loads a file from an include path.</p>
+		<hr />
+		<p>There is an important set of directives as they provide conditions</p>
+		<pre>#if [Condition]
+#ifdef [Name]
+#ifndef [Name]
+#elif [Condition]
+#else
+#endif</pre>
+		<p>Remember how I said to keep the odd definition scheme in the back of your head, well it now comes into play.</p>
+		<p>#if only includes whatever is inside it if its condition is true (1), #ifdef does the same thing except its condition is about if Name is defined before it, #ifndef is the same as before except it wants to know if Name is not defined, and lastly #elif is just else if.</p>
+		<p>That is a lot, so lets see them in action.&nbsp;</p>
+		<pre>#define Val 1
+#if Val
+int x = 5;
+#else
+int x = 1;
+#endif
+
+// Because Val is 1(true) this makes the entire if block collapse into
+int x = 5;
+</pre>
+		<p>Another example</p>
+		<pre>#ifndef NAME_OF_FILE
+#define NAME_OF_FILE
+int x = 10;
+#endif
+
+#ifndef NAME_OF_FILE
+#define NAME_OF_FILE
+int x = 10;
+#endif
+
+// This code seems like it should have two definitions of x
+// However because we are using ifndef the second time the block
+// is processed NAME_OF_FILE is defined so the condition fails
+// Leaving only one definition
+int x = 10;</pre>
+		<p>This is useful for #include, because it lets the compiler avoid tons of redefinitions across multiple files.</p>
+		<hr />
+		<p>There are way more than just these compiler directives, but the problem lies in the fact that most of them are compiler specific and do not work across all compilers. However because these are the most popular ones, they work nearly everywhere just fine.</p>
+	</div>
+</body>
+</html>

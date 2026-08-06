@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="bIue's Zone of the web. Also known as a corner to some.">
+	<meta name="keywords" content="About, bIue, bIue9076r, Games">
+	<meta name="author" content="bIue9076r">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>bIue9076r - *Pointers</title>
+	<link rel="stylesheet" href="../../../stuff/main.css">
+</head>
+<body>
+	<ul id="Topbar">
+		<li id="Topbar_item"><p>Zone bIue</p></li>
+		<li id="Topbar_item"><a href="../../../index.html">Home</a></li>
+		<li id="Topbar_item"><a href="../../../projects/games.html">Games</a></li>
+		<li id="Topbar_item"><a href="../../../projects/projects.html">Projects</a></li>
+		<li id="Topbar_item"><a href="../../../music/music.html">Music</a></li>
+		<li id="Topbar_item"><a id="active" href="../../misc.html">Misc.</a></li>
+	</ul>
+	<div id="ContentBox">
+		<p><a title="Home page" href="../mainpage.html">Home page</a></p>
+		<hr />
+		<p>Pointers are amazing!</p>
+		<p>I'm probably the only person you would ever hear say that, but it's true. Not just because I want it to be true.</p>
+		<p>&nbsp;</p>
+		<p>Pointers, like their name suggest, point to other things. How?</p>
+		<p>Well everything in a program has a location at any given time. For instance a variable x could be at an address 0x7FFF1321. Why this specific address? (No particular reason).</p>
+		<p>The computer uses that address to find what x is at any given time. One thing that sticks out from the address is that it is a number. This isn't a coincidence, that same number is the number the computer uses to find x (this will be important later).</p>
+		<p>In essence a pointer is just that number. [<code>int* ptrx = &amp;x ; // (0x7FFF1321)</code>]</p>
+		<p>Now why do we care? Well everything is memory.</p>
+		<p>&nbsp;</p>
+		<p>Your variable? Memory</p>
+		<p>Your function? Memory</p>
+		<p>Your class? Memory</p>
+		<p>&nbsp;</p>
+		<p>Because pointers let you interact with memory, pointers let you interact with <strong>Anything</strong>.</p>
+		<pre>// Valid C/C++ code
+int x = 300 ; // 0x012C
+int* p = &amp;x ;
+char two[2] = {0, 0}; // 0x00 0x00
+*((int*)two) = *p; // two = { 0x01, 0x2C }</pre>
+		<p>Cool. Hell yes.</p>
+	</div>
+</body>
+</html>
