@@ -95,6 +95,8 @@ AddSong("Pit Stop","2026",3,"Help From A Terrestrial OST","https://github.com/bI
 AddSong("Saturn's Regards","2026",4,"Help From A Terrestrial OST","https://github.com/bIue9076r/space-vet/raw/refs/heads/main/Assets/saturns_regards.mp3");
 AddSong("Planet X","2026",5,"Help From A Terrestrial OST","https://github.com/bIue9076r/space-vet/raw/refs/heads/main/Assets/planetx.mp3");
 AddSong("Bad Ache","2026",6,"Help From A Terrestrial OST","https://github.com/bIue9076r/space-vet/raw/refs/heads/main/Assets/ache.mp3");
+
+AddSong("Spell Caster","2026",8,"The Tarot Reader OST","https://github.com/bIue9076r/tarot/raw/refs/heads/main/assets/arenatut.mp3");
 SongList.reverse();
 LockSongs();
 
